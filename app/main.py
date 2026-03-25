@@ -13,6 +13,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from app.config import settings
 from app.db.pool import close_pool, fetchrow, init_pool
 from app.models.schemas import HealthResponse
+from app.routes.auth import router as auth_router
 from app.routes.social_accounts import router as social_router
 
 logging.basicConfig(
@@ -63,6 +64,7 @@ app.add_middleware(
 )
 
 # ── Routes ────────────────────────────────────────────────────────────────────
+app.include_router(auth_router)
 app.include_router(social_router)
 
 

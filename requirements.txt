@@ -8,3 +8,5 @@ pydantic
 pydantic-settings
 python-multipart
 starlette
+email-validator
+bcrypt

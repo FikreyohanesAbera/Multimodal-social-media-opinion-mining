@@ -37,6 +37,19 @@ logger = logging.getLogger(__name__)
 router = APIRouter(tags=["Social Accounts"])
 
 
+
+from uuid import uuid4
+from fastapi import FastAPI, Request
+
+@router.get("/test/login")
+def test_login(request: Request):
+    fake_user_id = str(uuid4())
+    request.session["userId"] = fake_user_id
+    return {
+        "message": "fake login success",
+        "userId": fake_user_id,
+    }
+
 # ─────────────────────────────────────────────────────────────────────────────
 # GET /social-accounts
 # List all connected social accounts for the authenticated user

@@ -17,7 +17,8 @@ from app.config import settings
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
-MIGRATIONS_DIR = Path(__file__).parent.parent.parent / "migrations"
+MIGRATIONS_DIR = Path(__file__).parent.parent / "migrations"
+print(MIGRATIONS_DIR)
 
 
 async def migrate() -> None:
